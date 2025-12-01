@@ -1410,6 +1410,7 @@
             .details__content ol {
                 max-width: 90%;
                 margin: 20px auto;
+                padding: 20px;
             }
 
             .blog-text-content ul li,
@@ -1428,7 +1429,7 @@
 
             .blog-text-content ol li,
             .details__content ol li {
-                padding: 12px 15px 12px 50px;
+                padding: 12px;
                 font-size: 15px;
             }
 
@@ -1488,6 +1489,34 @@
         .webinaarisarjan-link {
             color: rgb(25, 163, 255) !important;
         }
+
+        h3 {
+            text-align: start !important;
+        }
+
+        p {
+            text-align: justify !important;
+        }
+
+        .df {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .df .logo {
+      height: 50px !important;
+
+    }
+
+    .f-widget-title h2 {
+      margin-top: 12px;
+      font-size: 24px;
+    }
+
+    .copyright-wrap p {
+      font-size: 14px;
+    }
 
 
     </style>
@@ -2191,10 +2220,17 @@
 
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="footer-widget mb-30">
-                            <div class="f-widget-title">
-                                <h2>Tietoa meistä</h2>
+                            <div class="df">
+                                <a href="index.html">
+                                    <img src="img/logo/logo.png" alt="webhub Logo" >
+                                </a>
+                                <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    
+                                    <a href="index.html"
+                                        style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
+                                </div>
                             </div>
-                            <div class="footer-link">
+                            <div class="footer-link px-2">
                                 BloomLead yhdistää laaja-
                                 alaisesti ja käytännönläheisesti
                                 kaiken tarvittavan onnistuneen
@@ -2232,6 +2268,18 @@
                                 </ul>
 
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h2>Legal</h2>
+                            </div>
+                            <div class="footer-link">
+                                Käyttö- ja sopimusehdot
+                            </div>
+
                         </div>
                     </div>
 
