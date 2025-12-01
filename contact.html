@@ -228,6 +228,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -312,15 +313,30 @@
             justify-content: center;
             font-size: 12px;
         }
-        
-        .head{
+
+        .head {
             display: flex;
             align-items: center;
         }
 
-        .df{
+        .df {
             display: flex;
             align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .df .logo {
+            height: 50px !important;
+
+        }
+
+        .f-widget-title h2 {
+            margin-top: 12px;
+            font-size: 24px;
+        }
+
+        .copyright-wrap p {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -335,11 +351,12 @@
                         <!-- Logo - Left -->
                         <div class="col-xl-3 col-lg-3 col-md-6 col-6 head df">
                             <a href="index.html">
-                                    <img src="img/logo/logo.png" alt="webhub Logo">
-                                </a>
+                                <img src="img/logo/logo.png" alt="webhub Logo">
+                            </a>
                             <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-                                
-                                <a href="index.html" style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
+
+                                <a href="index.html"
+                                    style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
                             </div>
                         </div>
                         <!-- Navigation - Center (Desktop only) -->
@@ -347,7 +364,8 @@
                             <div class="main-menu text-center">
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
-                                        <li class="sub wrap"><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a></li>
+                                        <li class="sub wrap"><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a>
+                                        </li>
                                         <li class="sub">
                                             <a href="coaches.html">Valmentajat</a>
                                         </li>
@@ -381,7 +399,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Mobile Menu Dropdown -->
                     <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
                         <div class="mobile-search">
@@ -391,10 +409,10 @@
                             </a>
                         </div>
                         <ul>
-                                    <li><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a></li>
-                                    <li><a href="coaches.html">Valmentajat</a></li>
-                                    <li><a href="blog.html">Blogi</a></li>
-                                    <li><a href="contact.html">Yhteystiedot</a></li>
+                            <li><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a></li>
+                            <li><a href="coaches.html">Valmentajat</a></li>
+                            <li><a href="blog.html">Blogi</a></li>
+                            <li><a href="contact.html">Yhteystiedot</a></li>
                         </ul>
                     </div>
                 </div>
@@ -467,7 +485,7 @@
                     <div class="col-lg-8 col-md-10">
                         <div class="services-box mt-0 mb-30 text-center">
                             <div class="services-content2">
-                                
+
                                 <div style="text-align: left; max-width: 500px; margin: 0 auto;">
                                     <div style="margin-bottom: 20px;">
                                         <h5 style="color: #a571aa; margin-bottom: 10px;">Brandinimi:</h5>
@@ -475,20 +493,26 @@
                                         <h5 style="color: #a571aa; margin-bottom: 10px;">Yritys:</h5>
                                         <p>MT Coaching Oyj</p>
                                     </div>
-                                    
+
                                     <div style="margin-bottom: 20px;">
                                         <h5 style="color: #a571aa; margin-bottom: 10px;">Sähköposti:</h5>
-                                        <p><a href="mailto:email@example.com" style="color: #769757;">To be defined!</a></p>
+                                        <p><a href="mailto:email@example.com" style="color: #769757;">To be defined!</a>
+                                        </p>
                                     </div>
-                                    
+
                                     <div style="margin-bottom: 20px;">
                                         <h5 style="color: #a571aa; margin-bottom: 10px;">Websivu:</h5>
-                                        <p><a href="https://webinar-two-liard.vercel.app/" style="color: #2c5aa0; text-decoration: underline; transition: color 0.3s ease;" onmouseover="this.style.color='#1a4480'" onmouseout="this.style.color='#2c5aa0'">webhub.com</a></p>
+                                        <p><a href="https://webinar-two-liard.vercel.app/"
+                                                style="color: #2c5aa0; text-decoration: underline; transition: color 0.3s ease;"
+                                                onmouseover="this.style.color='#1a4480'"
+                                                onmouseout="this.style.color='#2c5aa0'">
+                                                BloomLead.com</a></p>
                                     </div>
-                                    
+
                                     <div style="margin-bottom: 20px;">
                                         <h5 style="color: #a571aa; margin-bottom: 10px;">Puhelin:</h5>
-                                        <p>+358 504867441, +358 50XXXXX<br><small style="color: #666;">(Ti, To klo 17-18)</small></p>
+                                        <p>+358 504867441, +358 50XXXXX<br><small style="color: #666;">(Ti, To klo
+                                                17-18)</small></p>
                                     </div>
                                 </div>
                             </div>
@@ -546,10 +570,17 @@
 
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="footer-widget mb-30">
-                            <div class="f-widget-title">
-                                <h2>Tietoa meistä</h2>
+                            <div class="df">
+                                <a href="index.html">
+                                    <img src="img/logo/logo.png" alt="webhub Logo">
+                                </a>
+                                <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+
+                                    <a href="index.html"
+                                        style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
+                                </div>
                             </div>
-                            <div class="footer-link">
+                            <div class="footer-link px-2">
                                 BloomLead yhdistää laaja-
                                 alaisesti ja käytännönläheisesti
                                 kaiken tarvittavan onnistuneen
@@ -587,6 +618,18 @@
                                 </ul>
 
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h2>Legal</h2>
+                            </div>
+                            <div class="footer-link">
+                                Käyttö- ja sopimusehdot
+                            </div>
+
                         </div>
                     </div>
 
@@ -653,19 +696,19 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/element-in-view.js"></script>
     <script src="js/main.js"></script>
-    
+
     <!-- Custom Mobile Menu Script -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Mobile menu toggle functionality
-            $('.mobile-menu-btn').on('click', function(e) {
+            $('.mobile-menu-btn').on('click', function (e) {
                 e.preventDefault();
                 $(this).toggleClass('active');
                 $('#mobileMenuDropdown').toggleClass('show');
             });
 
             // Close mobile menu when clicking outside
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.mobile-menu, .mobile-menu-dropdown').length) {
                     $('.mobile-menu-btn').removeClass('active');
                     $('#mobileMenuDropdown').removeClass('show');
@@ -673,13 +716,13 @@
             });
 
             // Close mobile menu when clicking on a link
-            $('.mobile-menu-dropdown a').on('click', function() {
+            $('.mobile-menu-dropdown a').on('click', function () {
                 $('.mobile-menu-btn').removeClass('active');
                 $('#mobileMenuDropdown').removeClass('show');
             });
 
             // Close mobile menu on window resize if desktop
-            $(window).on('resize', function() {
+            $(window).on('resize', function () {
                 if ($(window).width() >= 992) {
                     $('.mobile-menu-btn').removeClass('active');
                     $('#mobileMenuDropdown').removeClass('show');
