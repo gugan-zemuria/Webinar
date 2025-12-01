@@ -1878,8 +1878,7 @@ div>i>div></div>""
     </main>
     <!-- main-area-end -->
     <!-- footer -->
-    <footer class="footer-bg footer-p fix"
-        style=" background-image: url(img/bg/footer-bg.png); background-repeat: no-repeat; background-position: center;">
+    <footer class="footer-bg footer-p fix">
         <!-- <div class="footer-top  pt-70 pb-40">
             <div class="container">
                 <div class="row">
@@ -2097,112 +2096,115 @@ div>i>div></div>""
         const volumeSlider = document.getElementById('volumeSlider');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-        // Format time helper
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-
-        // Play/Pause functionality
-        function togglePlay() {
-            if (video.paused) {
-                video.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                videoOverlay.classList.add('hidden');
-            } else {
-                video.pause();
-                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                videoOverlay.classList.remove('hidden');
+        // Only initialize video player if elements exist
+        if (video && playButton && videoOverlay && playPauseBtn) {
+            // Format time helper
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
             }
-        }
 
-        playButton.addEventListener('click', togglePlay);
-        playPauseBtn.addEventListener('click', togglePlay);
-        video.addEventListener('click', togglePlay);
-
-        // Update progress bar
-        video.addEventListener('timeupdate', () => {
-            const percent = (video.currentTime / video.duration) * 100;
-            progressFilled.style.width = `${percent}%`;
-            currentTimeDisplay.textContent = formatTime(video.currentTime);
-        });
-
-        // Set duration when loaded
-        video.addEventListener('loadedmetadata', () => {
-            durationDisplay.textContent = formatTime(video.duration);
-        });
-
-        // Seek functionality
-        progressBar.addEventListener('click', (e) => {
-            const rect = progressBar.getBoundingClientRect();
-            const percent = (e.clientX - rect.left) / rect.width;
-            video.currentTime = percent * video.duration;
-        });
-
-        // Mute/Unmute
-        muteBtn.addEventListener('click', () => {
-            video.muted = !video.muted;
-            if (video.muted) {
-                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                volumeSlider.value = 0;
-            } else {
-                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                volumeSlider.value = video.volume * 100;
+            // Play/Pause functionality
+            function togglePlay() {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    videoOverlay.classList.add('hidden');
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    videoOverlay.classList.remove('hidden');
+                }
             }
-        });
 
-        // Volume control
-        volumeSlider.addEventListener('input', (e) => {
-            video.volume = e.target.value / 100;
-            if (video.volume === 0) {
-                video.muted = true;
-                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            } else {
-                video.muted = false;
-                if (video.volume < 0.5) {
-                    muteBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+            playButton.addEventListener('click', togglePlay);
+            playPauseBtn.addEventListener('click', togglePlay);
+            video.addEventListener('click', togglePlay);
+
+            // Update progress bar
+            video.addEventListener('timeupdate', () => {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressFilled.style.width = `${percent}%`;
+                currentTimeDisplay.textContent = formatTime(video.currentTime);
+            });
+
+            // Set duration when loaded
+            video.addEventListener('loadedmetadata', () => {
+                durationDisplay.textContent = formatTime(video.duration);
+            });
+
+            // Seek functionality
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                video.currentTime = percent * video.duration;
+            });
+
+            // Mute/Unmute
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    volumeSlider.value = 0;
                 } else {
                     muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    volumeSlider.value = video.volume * 100;
                 }
-            }
-        });
+            });
 
-        // Fullscreen
-        fullscreenBtn.addEventListener('click', () => {
-            const videoContainer = document.querySelector('.video-container');
-            if (!document.fullscreenElement) {
-                if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
-                } else if (videoContainer.webkitRequestFullscreen) {
-                    videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.msRequestFullscreen) {
-                    videoContainer.msRequestFullscreen();
+            // Volume control
+            volumeSlider.addEventListener('input', (e) => {
+                video.volume = e.target.value / 100;
+                if (video.volume === 0) {
+                    video.muted = true;
+                    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                } else {
+                    video.muted = false;
+                    if (video.volume < 0.5) {
+                        muteBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+                    } else {
+                        muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    }
                 }
-                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
+            });
+
+            // Fullscreen
+            fullscreenBtn.addEventListener('click', () => {
+                const videoContainer = document.querySelector('.video-container');
+                if (!document.fullscreenElement) {
+                    if (videoContainer.requestFullscreen) {
+                        videoContainer.requestFullscreen();
+                    } else if (videoContainer.webkitRequestFullscreen) {
+                        videoContainer.webkitRequestFullscreen();
+                    } else if (videoContainer.msRequestFullscreen) {
+                        videoContainer.msRequestFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
                 }
-                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-            }
-        });
+            });
 
-        // Show controls on video end
-        video.addEventListener('ended', () => {
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            videoOverlay.classList.remove('hidden');
-            videoControls.classList.add('show');
-        });
+            // Show controls on video end
+            video.addEventListener('ended', () => {
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                videoOverlay.classList.remove('hidden');
+                videoControls.classList.add('show');
+            });
 
-        // Hide overlay when video starts playing
-        video.addEventListener('play', () => {
-            videoOverlay.classList.add('hidden');
-        });
+            // Hide overlay when video starts playing
+            video.addEventListener('play', () => {
+                videoOverlay.classList.add('hidden');
+            });
+        }
 
         // Video Subscribe Popup Functionality
         const subscribePopup = document.getElementById('videoSubscribePopup');
@@ -2211,51 +2213,54 @@ div>i>div></div>""
         const subscribeBtn = document.getElementById('subscribeBtn');
         let hasShownPopup = false;
 
-        // Show popup when video plays
-        video.addEventListener('play', () => {
-            if (!hasShownPopup) {
-                setTimeout(() => {
-                    video.pause();
-                    subscribePopup.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }, 2000); // Show popup after 2 seconds of playing
+        // Only initialize subscribe popup if video and popup elements exist
+        if (video && subscribePopup && subscribeOverlay) {
+            // Show popup when video plays
+            video.addEventListener('play', () => {
+                if (!hasShownPopup) {
+                    setTimeout(() => {
+                        video.pause();
+                        subscribePopup.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }, 2000); // Show popup after 2 seconds of playing
+                }
+            });
+
+            // Close popup function
+            function closeSubscribePopup() {
+                subscribePopup.classList.remove('active');
+                document.body.style.overflow = '';
             }
-        });
 
-        // Close popup function
-        function closeSubscribePopup() {
-            subscribePopup.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+            // Close popup on close button click
+            subscribeCloseBtn.addEventListener('click', closeSubscribePopup);
 
-        // Close popup on close button click
-        subscribeCloseBtn.addEventListener('click', closeSubscribePopup);
+            // Close popup on overlay click
+            subscribeOverlay.addEventListener('click', closeSubscribePopup);
 
-        // Close popup on overlay click
-        subscribeOverlay.addEventListener('click', closeSubscribePopup);
+            // Handle subscribe button click
+            subscribeBtn.addEventListener('click', () => {
+                // Here you can add your subscription logic (e.g., redirect to subscription page)
+                console.log('Subscribe button clicked');
 
-        // Handle subscribe button click
-        subscribeBtn.addEventListener('click', () => {
-            // Here you can add your subscription logic (e.g., redirect to subscription page)
-            console.log('Subscribe button clicked');
+                // Show success message
+                alert('Thank you for subscribing! You can now continue watching the video.');
 
-            // Show success message
-            alert('Thank you for subscribing! You can now continue watching the video.');
-
-            // Mark as subscribed and close popup
-            hasShownPopup = true;
-            closeSubscribePopup();
-
-            // Resume video
-            video.play();
-        });
-
-        // Close popup on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && subscribePopup.classList.contains('active')) {
+                // Mark as subscribed and close popup
+                hasShownPopup = true;
                 closeSubscribePopup();
-            }
-        });
+
+                // Resume video
+                video.play();
+            });
+
+            // Close popup on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && subscribePopup.classList.contains('active')) {
+                    closeSubscribePopup();
+                }
+            });
+        }
     </script>
 </body>
 

@@ -704,7 +704,6 @@ body {
 }
 
 .slider-active .slick-track::before {
-    background-color: rgb(233, 217, 237);
     position: absolute;
     width: 590px;
     height: 575px;
