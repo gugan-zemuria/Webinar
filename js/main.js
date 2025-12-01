@@ -46,11 +46,11 @@ $('.responsive').on('click', function (e) {
 	$('#mobile-menu').slideToggle();
 });
 
-// meanmenu
-	$('#mobile-menu').meanmenu({
-		meanMenuContainer: '.mobile-menu',
-		meanScreenWidth: "992"
-	});
+// meanmenu - commented out as library is not loaded
+	// $('#mobile-menu').meanmenu({
+	// 	meanMenuContainer: '.mobile-menu',
+	// 	meanScreenWidth: "992"
+	// });
 
 	$('.info-bar').on('click', function () {
 		$('.extra-info').addClass('info-open');

@@ -856,6 +856,10 @@
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+    .single-slider {
+        background: none !important;
+    }
+
     .course-meta.review.style2 li::after {
         right: 10px;
     }
@@ -1043,9 +1047,9 @@
         background: none !important;
     }
 
-    .slider-active .slick-track::before {
+    /* .slider-active .slick-track::before {
         background: #fff5f4;
-    }
+    } */
 
     #feature-top {
         margin-top: -40px;
