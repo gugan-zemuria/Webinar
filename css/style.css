@@ -4819,7 +4819,7 @@ section:hover .section-title h2::before {
 }
 
 .f-contact .icon {
-    margin-right: 20px;
+    margin-right: 12px;
 }
 
 .f-contact span {
@@ -5012,6 +5012,8 @@ section:hover .section-title h2::before {
 }
 
 .f-contact li {
+    display: flex;
+    align-items: center;
     float: left;
     margin-bottom: 20px !important;
     width: 100%;
@@ -9392,7 +9394,7 @@ p.checkout-coupon input[type="text"] {
     padding: 25px;
     overflow: hidden;
     margin-bottom: 40px;
-    border: 2px solid #f5f5f5 !important;
+    /* border: 2px solid #f5f5f5 !important; */
 }
 
 .sidebar-widget .widget li {

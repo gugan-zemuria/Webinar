@@ -36,6 +36,12 @@
       border-radius: 50%;
     }
 
+    ul li {
+      list-style: disc;
+    }
+
+    .f-contact ul li {list-style: none;}
+
     .play-button {
       width: 80px;
       height: 80px;
@@ -1269,16 +1275,16 @@
     }
 
     /* Decorative List Styles for Blog Content */
-    .blog-text-content ul,
+    /* .blog-text-content ul,
     .details__content ul:not(.meta-info ul) {
       list-style: none;
       padding-left: 0;
       margin: 25px auto;
       max-width: 850px;
       width: 100%;
-    }
+    } */
 
-    .blog-text-content ul li,
+    /* .blog-text-content ul li,
     .details__content ul:not(.meta-info ul) li {
       position: relative;
       padding: 12px 0 12px 40px;
@@ -1289,8 +1295,8 @@
       transition: all 0.3s ease;
       font-size: 16px;
       line-height: 1.6;
-    }
-
+    } */
+/* 
     .blog-text-content ul li:hover,
     .details__content ul:not(.meta-info ul) li:hover {
       background: linear-gradient(135deg, rgba(165, 113, 170, 0.1) 0%, rgba(118, 151, 87, 0.1) 100%);
@@ -1316,7 +1322,7 @@
       font-size: 12px;
       font-weight: bold;
       box-shadow: 0 2px 8px rgba(165, 113, 170, 0.3);
-    }
+    } */
 
     .blog-text-content ul li a,
     .details__content ul:not(.meta-info ul) li a {
@@ -1346,6 +1352,10 @@
     .blog-text-content ol li,
     .details__content ol li {
       list-style: decimal;
+
+      .blog-text-content ul li {
+        list-style: disc !important;
+      }
 
       /* position: relative;
             padding: 15px 20px 15px 60px;
@@ -1420,11 +1430,11 @@
         margin: 20px auto;
       }
 
-      .blog-text-content ul li,
+      /* .blog-text-content ul li,
       .details__content ul:not(.meta-info ul) li {
         padding: 10px 15px 10px 35px;
         font-size: 15px;
-      }
+      } */
 
       .blog-text-content ul li::before,
       .details__content ul:not(.meta-info ul) li::before {
@@ -1843,9 +1853,10 @@
                   ihmisten tilanteen ymmärtäminen ja projektissa toimivien ja siihen liittyvien ihmisten
                   hyvä motivaatio takaavat jokaisen projektin onnistumisen. Sitten vain oppimaan
                   kaikista näistä tärkeistä asioista!</p>
-                <p><img src="/img/blog/right-hand-pointer-with-shirt-cuff-black-icon.svg" alt="" height="24px"
-                    width="24px"> Lue myös Marken blogi aiheesta <a href="courses-details.html">itsensäjohtaminen</a>
-                </p>
+                <ul>
+                  <li>Lue myös Marken blogi aiheesta <a href="courses-details.html">itsensäjohtaminen</a>
+                  </li>
+                </ul>
                 <p>Tutustu ja tilaa webinaarimoduli 1 aiheesta
                   <a href="blog-details.html">projektin taustoitus ja määrittely!</a>
                 </p>
@@ -2216,7 +2227,7 @@
                   <li><i class="icon fal fa-envelope"></i>
                     <span>
                       <span style="display: block;">contact@bloomlead.io</span>
-                      <span style="display: block;">help@example.com</span>
+                      <!-- <span style="display: block;">help@example.com</span> -->
                     </span>
                   </li>
                   <li>
