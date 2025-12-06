@@ -1,0 +1,670 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BloomLead - Sopimusehdot</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/logo.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="font-flaticon/flaticon.css">
+    <link rel="stylesheet" href="css/dripicons.css">
+    <link rel="stylesheet" href="css/slick.css">
+
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Logo text styling */
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #769757;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Jost', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: #a571aa;
+        }
+
+        /* Center navigation */
+        .main-menu ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-menu ul li {
+            margin: 0 15px;
+        }
+
+        @media (max-width: 991px) {
+            .main-menu {
+                display: none !important;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+        }
+
+        /* Ensure header is above mobile menu */
+        #header-sticky {
+            z-index: 10000;
+            background: white;
+        }
+
+        /* Logo and hamburger alignment */
+        .header-right {
+            height: 70px;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        /* Mobile Menu Button Styles */
+        .mobile-menu-btn {
+            background: rgba(0, 46, 91, 0.1);
+            border: 2px solid #769757;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #769757;
+            margin: 2px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hamburger animation when active */
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(45deg) translate(-4px, -4px);
+        }
+
+        /* Mobile menu dropdown */
+        .mobile-menu-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            display: none;
+            z-index: 9999;
+            box-shadow: 0 5px 15px rgba(165, 113, 170, 0.3);
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+            border-radius: 10px;
+            border-top: none;
+        }
+
+        .mobile-menu-container {
+            position: relative;
+        }
+
+        .mobile-menu-dropdown.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-menu-dropdown ul {
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-dropdown ul li {
+            border-bottom: 1px solid rgba(165, 113, 170, 0.2);
+        }
+
+        .mobile-menu-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-dropdown ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: #769757;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-dropdown ul li a:hover {
+            background-color: rgba(165, 113, 170, 0.1);
+            color: #a571aa;
+            transform: translateX(5px);
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+        }
+
+        .df {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .df .logo {
+            height: 50px !important;
+        }
+
+        .f-widget-title h2 {
+            margin-top: 12px;
+            font-size: 24px;
+        }
+
+        .copyright-wrap p {
+            font-size: 14px;
+        }
+
+        /* Terms and Conditions Content Styles */
+        .terms-content {
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+        }
+
+        .terms-content h1 {
+            color: #769757;
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .terms-content .subtitle {
+            color: #a571aa;
+            font-size: 20px;
+            text-align: center;
+            /* margin-bottom: 30px; */
+            font-weight: 500;
+        }
+
+        .terms-content .effective-date {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+      
+        .terms-content h2 {
+            color: #555;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            /* border-bottom: 2px solid #a571aa; */
+        }
+
+        .terms-content h3 {
+            color: #a571aa;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .terms-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .terms-content ol {
+            counter-reset: item;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .terms-content ol > li {
+            counter-increment: item;
+            /* margin-bottom: 12px; */
+            padding-left: 0;
+        }
+
+        .terms-content ol > li::before {
+            content: counter(item) ". ";
+            color: #555;
+            font-weight: 700;
+            font-size: 24px;
+            
+        }
+
+        .terms-content ol > li h2 {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .terms-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            margin-left: 0;
+        }
+
+        .terms-content ul li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            display: list-item;
+            list-style: disc;
+        }
+
+        .terms-content .company-info {
+            /* background: #f8f9fa; */
+            padding: 20px;
+            padding-left: 40px;
+            border-radius: 10px;
+            /* margin-bottom: 30px; */
+        }
+
+       
+        .terms-content .company-info ul {
+            margin-left: 0;
+        }
+
+        .terms-content .company-info p {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 30px 20px;
+            }
+
+            .terms-content h1 {
+                font-size: 28px;
+            }
+
+            .terms-content h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header-area header-three">
+        <div id="header-sticky" class="menu-area">
+            <div class="container mobile-menu-container">
+                <div class="second-menu">
+                    <div class="row align-items-center">
+                        <!-- Logo - Left -->
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-6 mb-0 head df">
+                            <a href="index.html">
+                                <img src="img/logo/logo.png" alt="BloomLead Logo">
+                            </a>
+                            <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+                                <a href="index.html"
+                                    style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
+                            </div>
+                        </div>
+                        <!-- Navigation - Center (Desktop only) -->
+                        <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                            <div class="main-menu text-center">
+                                <nav id="mobile-menu" style="display: block;">
+                                    <ul>
+                                        <li class="sub wrap"><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a></li>
+                                        <li class="sub"><a href="coaches.html">Valmentajat</a></li>
+                                        <li class="sub"><a href="blog.html">Blogi</a></li>
+                                        <li class="sub"><a href="contact.html">Yhteystiedot</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Search & Hamburger - Right -->
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-6">
+                            <div class="header-right d-flex align-items-center justify-content-end">
+                                <!-- Mobile menu toggle -->
+                                <div class="mobile-menu d-lg-none">
+                                    <button class="mobile-menu-btn" type="button">
+                                        <span class="hamburger-line"></span>
+                                        <span class="hamburger-line"></span>
+                                        <span class="hamburger-line"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Dropdown -->
+                    <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
+                        <ul>
+                            <li><a href="pricing.html">Webinaarivaihtoehdot & Hinnat</a></li>
+                            <li><a href="coaches.html">Valmentajat</a></li>
+                            <li><a href="blog.html">Blogi</a></li>
+                            <li><a href="contact.html">Yhteystiedot</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- main-area -->
+    <main>
+        <!-- Terms and Conditions Content -->
+        <section class="pt-30 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="terms-content">
+                            <h1>MT Coaching Oy Sopimusehdot</h1>
+                            <p class="subtitle">(Projektinjohtamisen Verkkokursseilla)</p>
+                            <p class="effective-date">Nämä sopimusehdot ovat voimassa 01.12.2025 alkaen.</p>
+
+                            <ol>
+                                <li>
+                                    <h2>Palveluntarjoaja</h2>
+                                    <div class="company-info">
+                                        <p><strong>MT Coaching Oy</strong></p>
+                                        <p>Y-tunnus: [Y-tunnus]</p>
+                                        <p>Postiosoite: [Postiosoite]</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Yleistä</h2>
+                                    <div class="company-info">
+                                        <p>Näitä sopimusehtoja sovelletaan kuluttajan, yrityksen tai yhteisön (jäljempänä "asiakas") ja MT Coaching Oy (jäljempänä "yritys") välisessä suhteessa. Yritys tarjoaa palveluinaan digitaalista sisältöä (mm. verkkokursseja).</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Sopimuksen voimassaolo</h2>
+                                    <div class="company-info">
+                                        <p>Sopimus asiakkaan ja yrityksen välillä on kertaluontoinen. Kertaluontoinen sopimus syntyy, kun asiakas ostaa yritykseltä palvelun. Asiakas ei ole tämän jälkeen velvollinen ostamaan muita tuotteita eikä sitoudu kuukausittaisiin maksuihin tai ostoihin. Sopimus päättyy, kun palvelu on suoritettu loppuun.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Hinnat</h2>
+                                    <div class="company-info">
+                                        <p>Yrityksellä on oikeus muuttaa palveluidensa hintoja. Verkkokaupassa näkyvä hinta on voimassa oleva hinta kyseiselle palvelulle. Hinnat sisältävät arvonlisäveron ALV 25,5 %.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Maksuehdot</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Yritys tarjoaa palveluille laskumaksua ja Mobilepay:ta maksutapoina. Käytettävissä olevat maksutavat näkyvät ostoksen tekemisen yhteydessä.</li>
+                                            <li>Viivästyneistä maksuista peritään korkolain mukainen viivästyskorko sekä maksumuistutuksista ja muista perintätoimista aiheutuneet kulut. Yritys siirtää maksamattomat saatavat huomautuksen jälkeen perintätoimiston perittäviksi. Perintätoimisto käyttää maksamattomien laskujen perintään vapaaehtoista ja oikeudellista perintää. Laskuihin lisätään perintätoimiston hinnaston mukaiset perintäkulut.</li>
+                                            <li>Yritys voi katkaista asiakkaan pääsyn ostamiinsa palveluihin viivästyneiden tai maksamattomien maksujen (myös osamaksuerien) takia, jos maksu ei ole saapunut eräpäivään mennessä. Tämä ei kuitenkaan poista asiakkaan maksuvelvollisuutta.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Palveluiden käyttöoikeus</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Asiakas saa palvelun ostettuaan siihen käyttöoikeuden niin pitkäksi aikaa kuin palvelu on saatavilla yrityksen verkkosivuilla tai kurssialustalla. Käyttöoikeus on rajattu eli palveluiden ja sisältöjen omistus- ja tekijän- ja teollisoikeudet eivät siirry asiakkaalle.</li>
+                                            <li>Käyttöoikeus on asiakkaalle henkilökohtainen ja antaa asiakkaalle oikeuden käyttää ostamaansa palvelua vain omassa yksityisessä tai oman yrityksen käytössä näiden ehtojen mukaisesti.</li>
+                                            <li>Asiakas ei saa jakaa käyttöoikeutta kenenkään kanssa, eikä siirtää sitä kenellekään. Asiakas ei saa näyttää tai levittää käyttöoikeutta vaativien palveluiden sisältöä millään tavalla (esim. internetissä), ellei yritys anna siihen erikseen lupaa. Asiakkaan käyttäjätilin tai käyttöoikeuden jakaminen tai levittäminen on sopimusrikkomus ja voi johtaa palveluiden katkaisuun ja mahdollisiin korvausvaatimuksiin.</li>
+                                            <li>Käyttöoikeutta vaativa sisältö voidaan yrityksen yksipuolisella päätöksellä ja ilman ilmoitusta muuttua vapaasti saatavilla olevaksi ja päinvastoin.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Palveluiden saatavuus ja toimivuus</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Palvelun käyttö edellyttää rekisteröitymistä. Rekisteröitymisvaiheessa asiakkaan tulee ilmoittaa etunimi, sukunimi sekä käytössä oleva sähköpostiosoite.</li>
+                                            <li>Palvelun ostamisen yhteydessä asiakkaan tulee ilmoittaa etu- ja sukunimi, osoite sekä mahdollisesti muita henkilötietoja. Asiakas vastaa tietojen ajantasaisuudesta ja oikeellisuudesta. Yritys ei vastaa väärien tietojen antamisen johdosta aiheutuvista mahdollisista vahingoista.</li>
+                                            <li>Osassa yrityksen palveluita voidaan hyödyntää kolmansien osapuolien ympäristöjä ja sovelluksia, kuten Facebookia. Asiakas vastaa itse tällaisten sovellusten asentamisesta ja käyttämisestä. Yritys ei vastaa kolmansien osapuolien ympäristöjen ja sovellusten toimintahäiriöistä eikä tarjoa teknistä tukea niiden käyttämiseen.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Materiaalien ja yhteisön käyttöoikeus</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Asiakas saa BloomLead Projektijohtamisen verkkovalmennuksen ja sen opetusmateriaalien käyttöoikeuden rajoituksetta ja pysyvästi. Käyttöoikeus on henkilökohtainen eikä sitä saa siirtää tai jakaa kolmansille osapuolille.</li>
+                                            <li>Pääsy valmennuksen yhteisöön ja valmentajan tukeen on voimassa webinaarimodulikohtaisesti kymmenen (10) viikon ajan valmennuksen aloituspäivästä lukien. Tämän jälkeen asiakas saa jatkaa fasilitoidun yhteisön jäsenenä.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Ehtojen muutos</h2>
+                                    <div class="company-info">
+                                        <p>Yritys pidättää itselleen oikeuden muuttaa sopimusehtoja. Asiakas on velvollinen tarkistamaan sopimusehtojen sisällön ja päättämään sen jälkeen, haluaako hän jatkaa sopimusehtojen noudattamista. Mikäli asiakas ei halua noudattaa näitä tai myöhemmin muutettuja sopimusehtoja, yrityksen sivustojen ja palveluiden käyttö tulee välittömästi lopettaa.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Peruutusehdot</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Kuluttaja-asiakas hyväksyy, ettei tällä ole Suomen kuluttajansuojalain mukaista peruuttamisoikeutta sen vuoksi, että kyseessä on palvelu, jonka asiakas saa digitaalisesti heti käyttöönsä. Kuluttajansuojalain mukaista 14 päivän peruuttamisoikeutta ei tällöin ole, ellei yritys ole sitä itse erikseen antanut.</li>
+                                            <li>Myöskään yritys- ja yhteisöasiakkaalla ei ole peruuttamisoikeutta, ellei yritys ole sitä itse erikseen mainitusti antanut.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Henkilötietojen kerääminen ja luovuttaminen</h2>
+                                    <div class="company-info">
+                                        <p>Yritys noudattaa kaikessa henkilötietojen keräämisessä ja käsittelyssä tietosuojalakia. <br>Yrityksen rekisteri- ja tietosuojaseloste löytyvät yrityksen verkkosivuilla.</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Vastuunrajoitukset</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Yritys ei vastaa mistään tilaukseen, toimitukseen tai tuotteeseen liittyvästä tai mistään edellä mainitusta aiheutuneesta välillisestä tai välittömästä tai muusta vahingosta paitsi siihen asti kuin pakottava määräys kuluttajanasuojalaissa tai muussa pakottavassa laissa on kyseisen vahingon osalta toisin määrännyt.</li>
+                                            <li>Yritys ei vastaa verkkosivuston käytön yhteydessä esiintyneistä teknisistä häiriöistä ja siitä seuraavasta puutteellisesta tilausten käsittelyssä eikä kolmansien osapuolien tarjoamien palveluiden, kuten kurssialustan, toimintahäiriöistä (kuten järjestelmien toimintahäiriöt ja viiveet maksujen siirtymisessä) eikä sopimuksista, jotka asiakas tekee kolmansien osapuolten kanssa ostaessaan tuotteita.</li>
+                                            <li>Yritys ei missään tapauksessa vastaa palvelujen, tuotteiden tai näiden sisältämien materiaalien pohjalta ja johdosta tehtyjen asiakkaan päätösten seurauksista tai näiden aikaansaamisista tuloksista. Yritys ei näin ollen takaa sitä, että tämän palvelut välittömästi tuottavat asiakkaalle rahallista tuottoa.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h2>Erimielisyydet ja sovellettava laki</h2>
+                                    <div class="company-info">
+                                        <ul>
+                                            <li>Nämä sopimusehdot on laadittu, jotta erimielisyyksiä ei syntyisi. Mikäli kuitenkin erimielisyyksiä syntyy palveluista tai sopimuksesta muutoin, pyritään ne ratkaisemaan asiakkaan ja yrityksen välisillä neuvotteluilla.</li>
+                                            <li><strong>Kuluttaja-asiakas:</strong> mikäli palveluita tai muutoin sopimusta koskevaa erimielisyyttä ei saada ratkaistuksi osapuolten välisillä neuvotteluilla, kuluttaja voi saattaa asian kuluttajariitalautakunnan käsiteltäväksi ottamalla yhteyttä kuluttajariitalautakuntaan (<a href="https://www.kuluttajariita.fi" target="_blank" style="color: #a571aa;">www.kuluttajariita.fi</a>). Ennen asian viemistä kuluttajariitalautakunnan käsittelyyn, kuluttaja voi olla myös yhteydessä maistraattien kuluttajaneuvontaan (<a href="https://www.kuluttajaneuvonta.fi" target="_blank" style="color: #a571aa;">www.kuluttajaneuvonta.fi</a>).</li>
+                                            <li>Tähän sopimukseen sovelletaan Suomen lakia. Palveluista tai sopimuksesta muutoin aiheutuvat erimielisyydet ratkaistaan yrityksen kotipaikan mukaisessa tuomioistuimessa, elleivät asiakas ja yritys pääse asiassa neuvotteluilla sovintoon.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- main-area-end -->
+
+    <!-- footer -->
+    <footer class="footer-bg footer-p fix">
+        <div class="footer-center pt-70 pb-40">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="df">
+                                <a href="index.html">
+                                    <img src="img/logo/logo.png" alt="BloomLead Logo">
+                                </a>
+                                <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+                                    <a href="index.html"
+                                        style="font-size: 24px; color: #769757; font-weight: 700; font-family: 'Jost', sans-serif; text-decoration: none;">BloomLead</a>
+                                </div>
+                            </div>
+                            <div class="footer-link px-2">
+                                BloomLead – auttaa projektin tavoitteiden ja ROI:n toteutuksessa yhdistämällä ihmisten ja projektin johtamisen, muutoksen ja AI:n.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h2>Ota yhteyttä</h2>
+                            </div>
+                            <div class="f-contact">
+                                <ul>
+                                    <li><i class="icon fal fa-envelope"></i>
+                                        <span>
+                                            <span style="display: block;">contact@bloomlead.io</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i class="icon fal fa-phone"></i>
+                                        <span>+358 44 388 3188,
+                                            <br>ti ja to klo 17.00-18.00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h2>Sopimukset</h2>
+                            </div>
+                            <div class="footer-link">
+                                <p><a href="terms-and-conditions.html" style="color: inherit;">Käyttö- ja sopimusehdot</a></p>
+                                <p><a href="privacy-policy.html" style="color: inherit;">Tietosuojalauseke</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h2>Yrityksen tiedot</h2>
+                            </div>
+                            <div class="footer-link">
+                                BloomLead I MT Business Coaching Oy<br>
+                                Y-tunnus 3166661-4<br>
+                                Pankkitili
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row align-items-center" style="justify-content: center;">
+                    <div class="col-lg-6">
+                        Copyright &copy; 2025 BloomLead. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/one-page-nav-min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/paroller.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/js_isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="js/parallax-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/element-in-view.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const menuDropdown = document.querySelector('.mobile-menu-dropdown');
+            
+            if (menuBtn && menuDropdown) {
+                menuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    menuDropdown.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
